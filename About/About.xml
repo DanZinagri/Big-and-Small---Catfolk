@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Big and Small - Catfolk</name>
+  <author>DanZinagri</author>
+  <packageId>DanZinagri.BigSmall.Catfolk</packageId>
+  <supportedVersions>
+    <li>1.6</li>
+  </supportedVersions>
+  <modDependencies>
+    <li>
+      <packageId>Ludeon.RimWorld.Biotech</packageId>
+      <displayName>Biotech</displayName>
+    </li>
+    <li>
+      <packageId>OskarPotocki.VanillaFactionsExpanded.Core</packageId>
+      <displayName>Vanilla Expanded Framework</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2023507013</steamWorkshopUrl>
+    </li>
+    <li>
+      <packageId>RedMattis.BetterPrerequisites</packageId>
+      <displayName>Big and Small - Framework</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2925432336</steamWorkshopUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>Ludeon.RimWorld.Biotech</li>
+    <li>OskarPotocki.VanillaFactionsExpanded.Core</li>
+    <li>RedMattis.BetterPrerequisites</li>
+    <li>RedMattis.BigSmall.Core</li>
+  </loadAfter>
+  <description>Catfolk xenotype for the Big and Small framework.
+
+Requires Biotech, Vanilla Expanded Framework and Big and Small - Framework.</description>
+</ModMetaData>

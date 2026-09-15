@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <XenotypeDef>
+    <defName>DZ_Catfolk</defName>
+    <label>catfolk</label>
+    <description>Tailed humanoids known for their feline appearance and agile nature.</description>
+    <iconPath>UI/Icons/Xenotypes/Catfolk</iconPath>
+    <inheritable>true</inheritable>
+    <displayPriority>300</displayPriority>
+    <genes>
+      <li MayRequire="EBSG.Framework">DZ_NineLives</li>
+      <li>DZ_FeralFelineSprint</li>
+      <li>DZ_Catfolk_Stats</li>
+      <li>DZ_CatfolkFelineHead</li>
+      <li>Sleepy</li>
+      <li>Body_Standard</li>
+      <li>Libido_High</li>
+      <li>DZ_CatfolkEars</li>
+      <li>DZ_CatfolkTail</li>
+      <li>DZ_CatfolkClaws</li>
+      <li>DarkVision</li>
+
+      <li>AptitudePoor_Cooking</li>
+      <li>AptitudePoor_Plants</li>
+      <li>AptitudePoor_Mining</li>
+
+      <li MayRequire="sarg.alphagenes">AG_TableResistance</li>
+      <li MayRequire="sarg.alphagenes">AG_Clean</li>
+      <li MayRequire="sarg.alphagenes">AG_MiningYield_Low</li>
+    </genes>
+  </XenotypeDef>
+
+  <XenotypeDef>
+    <defName>DZ_Panthera</defName>
+    <label>Pantherakin</label>
+    <description>A larger and more feral varient of catfolk.</description>
+    <iconPath>UI/Icons/Xenotypes/Catfolk</iconPath>
+    <inheritable>true</inheritable>
+    <displayPriority>300</displayPriority>
+    <genes>
+      <li MayRequire="EBSG.Framework">DZ_NineLives</li>
+      <li>DZ_FeralFelineSprint</li>
+      <li>FireTerror</li>
+      <li>Aggression_Aggressive</li>
+      <li>MeleeDamage_Strong</li>
+      <li>Sleepy</li>
+      <li>Libido_High</li>
+      <li>DZ_CatfolkEars</li>
+      <li>Body_Standard</li>
+      <li>DarkVision</li>
+      <li>DZ_CatfolkFurredFelineHead</li>
+      <li>DZ_Panthera_Stats</li>
+      <li>DZ_CatfolkClaws</li>
+      <li>DZ_PantheraTail</li>
+      <li>StrongStomach</li>
+
+      <li>AptitudeStrong_Shooting</li>
+      <li>AptitudeStrong_Melee</li>
+      <li>AptitudePoor_Cooking</li>
+      <li>AptitudePoor_Plants</li>
+
+      <li MayRequire="sarg.alphagenes">AG_TableResistance</li>
+      <li MayRequire="sarg.alphagenes">AG_Clean</li>
+      <li MayRequire="sarg.alphagenes">AG_MiningYield_Low</li>
+    </genes>
+  </XenotypeDef>
+
+  <!-- the night genes are added by DZ_WereCatForm. Do NOT list DZ_CatfolkFurredFelineHead, DZ_CatfolkEars or DZ_CatfolkTail here (see HediffDefs_WereCat.xml). -->
+  <XenotypeDef>
+    <defName>DZ_WereCat</defName>
+    <label>Werecat</label>
+    <description>A humanoid infected with felinthropy, forced to turn into a feral catfolk when the sun goes down.</description>
+    <iconPath>UI/Icons/Xenotypes/Catfolk</iconPath>
+    <inheritable>true</inheritable>
+    <displayPriority>300</displayPriority>
+    <genes>
+      <li MayRequire="EBSG.Framework">DZ_NineLives</li>
+      <li>DZ_FeralFelineSprint</li>
+      <li>DZ_InvoluntaryWereCat</li>
+      <li>NakedSpeed</li>
+      <li>Aggression_HyperAggressive</li>
+      <li MayRequire="RedMattis.BigSmall.Core">BS_NightOwl</li>
+      <li>Pain_Reduced</li>
+      <li>Libido_High</li>
+      <li>StrongStomach</li>
+      <li>RobustDigestion</li>
+      <li>PsychicAbility_Dull</li>
+      <li>Mood_Pessimist</li>
+
+      <li>AptitudeRemarkable_Melee</li>
+      <li>AptitudePoor_Cooking</li>
+      <li>AptitudeRemarkable_Animals</li>
+      <li>AptitudePoor_Social</li>
+      <li>AptitudePoor_Intellectual</li>
+
+      <li MayRequire="sarg.alphagenes">AG_TableResistance</li>
+      <li MayRequire="sarg.alphagenes">AG_Clean</li>
+      <li MayRequire="sarg.alphagenes">AG_MiningYield_Low</li>
+    </genes>
+  </XenotypeDef>
+
+</Defs>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- One innate stat gene per xenotype. Placeholder numbers; names/stats to be tuned. -->
+  <GeneDef Name="DZ_CatfolkStatsBase" Abstract="True">
+    <displayCategory>Miscellaneous</displayCategory>
+    <displayOrderInCategory>700</displayOrderInCategory>
+    <iconPath>UI/Icons/Genes/CatIcon</iconPath>
+    <biostatCpx>1</biostatCpx>
+    <biostatMet>-1</biostatMet>
+    <selectionWeight>0</selectionWeight>
+    <canGenerateInGeneSet>false</canGenerateInGeneSet>
+    <statOffsets>
+      <MoveSpeed>0.1</MoveSpeed>
+    </statOffsets>
+    <!-- Shared by every child (child stat lists append to these). -->
+    <statFactors>
+      <RestRateMultiplier>1.2</RestRateMultiplier>
+      <CaravanBonusSpeedFactor>1.05</CaravanBonusSpeedFactor>
+    </statFactors>
+  </GeneDef>
+
+  <GeneDef ParentName="DZ_CatfolkStatsBase">
+    <defName>DZ_Catfolk_Stats</defName>
+    <label>catfolk agility</label>
+    <description>Carriers of this gene have the innate agility of the catfolk.</description>
+    <statOffsets>
+      <!-- VEF stat, rolled in its Projectile.ImpactSomething patch. -->
+      <VEF_RangedDodgeChance>0.1</VEF_RangedDodgeChance>
+    </statOffsets>
+    <!-- Chance to trigger an unnoticed trap; lower is better. -->
+    <statFactors>
+      <PawnTrapSpringChance>0.8</PawnTrapSpringChance>
+    </statFactors>
+  </GeneDef>
+
+  <GeneDef ParentName="DZ_CatfolkStatsBase">
+    <defName>DZ_Panthera_Stats</defName>
+    <label>pantherakin strength</label>
+    <description>Carriers of this gene have the innate agility of the pantherakin.</description>
+    <statOffsets>
+      <!-- Big and Small framework stat: additive body size. -->
+      <SM_BodySizeOffset>0.25</SM_BodySizeOffset>
+    </statOffsets>
+    <!-- Chance to trigger an unnoticed trap; lower is better. -->
+    <statFactors>
+      <PawnTrapSpringChance>0.8</PawnTrapSpringChance>
+    </statFactors>
+  </GeneDef>
+
+</Defs>

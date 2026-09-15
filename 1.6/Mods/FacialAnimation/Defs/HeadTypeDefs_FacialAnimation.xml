@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <FacialAnimation.HeadTypeDef MayRequire="nals.facialanimation">
+    <defName>DZ_CatfolkFelineHead</defName>
+    <texPath>DZ_CatfolkAnimalNose</texPath>
+    <probability>1</probability>
+    <shader>Map/CutoutSkin</shader>
+    <shaderColorOverride>Map/CutoutSkinOverride</shaderColorOverride>
+    <targetGeneDefs>
+      <li>DZ_CatfolkFelineHead</li>
+      <li>DZ_CatfolkFurredFelineHead</li>
+    </targetGeneDefs>
+  </FacialAnimation.HeadTypeDef>
+
+</Defs>

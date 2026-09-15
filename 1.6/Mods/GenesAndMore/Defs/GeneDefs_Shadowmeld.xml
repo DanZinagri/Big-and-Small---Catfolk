@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Soul-powered stealth for the Cait Sith, built on Genes & More's true-form pattern:
+       gene -> ability (BS_TrueFormAbillity parent: self-cast, usable while downed, soul cost on
+       activation) -> hediff that drains soul power on a timer and drops when the pool is empty or
+       the pawn cancels it. Invisibility is vanilla HediffComp_Invisibility, the same comp Royalty's
+       psychic invisibility and Anomaly's revenant use. That comp logs an error unless Royalty or
+       Anomaly is installed, hence MayRequireAnyOf on all three defs and on the xenotype entry. -->
+
+  <GeneDef MayRequireAnyOf="Ludeon.RimWorld.Royalty,Ludeon.RimWorld.Anomaly">
+    <defName>DZ_CaitSith_Shadowmeld</defName>
+    <label>shadowmeld</label>
+    <description>Carriers of this gene can bend their soul power into a veil that hides them from every eye. Holding the veil drains soul power steadily; it collapses when the well runs dry.</description>
+    <!-- Placeholder icon. -->
+    <iconPath>UI/Icons/Genes/CatIcon</iconPath>
+    <displayCategory>BS_Soul_Category</displayCategory>
+    <displayOrderInCategory>500</displayOrderInCategory>
+    <biostatCpx>2</biostatCpx>
+    <biostatMet>-2</biostatMet>
+    <selectionWeight>0</selectionWeight>
+    <canGenerateInGeneSet>false</canGenerateInGeneSet>
+    <abilities>
+      <li>DZ_CaitSith_Shadowmeld_Ability</li>
+    </abilities>
+    <descriptionHyperlinks>
+      <AbilityDef>DZ_CaitSith_Shadowmeld_Ability</AbilityDef>
+    </descriptionHyperlinks>
+    <!-- Framework prerequisite (enforced at runtime, unlike vanilla's <prerequisite> field):
+         inactive unless the pawn has an active Cait Sith stats gene. -->
+    <modExtensions>
+      <li Class="BigAndSmall.GenePrerequisites">
+        <prerequisiteSets>
+          <li>
+            <type>AnyOf</type>
+            <prerequisites>
+              <li>DZ_CaitSith_Stats</li>
+            </prerequisites>
+          </li>
+        </prerequisiteSets>
+      </li>
+    </modExtensions>
+  </GeneDef>
+
+  <AbilityDef ParentName="BS_TrueFormAbillity" MayRequireAnyOf="Ludeon.RimWorld.Royalty,Ludeon.RimWorld.Anomaly">
+    <defName>DZ_CaitSith_Shadowmeld_Ability</defName>
+    <label>shadowmeld</label>
+    <description>Vanish from sight for as long as your soul power holds out. Cancel at any time.</description>
+    <iconPath>UI/Icons/Genes/CatIcon</iconPath>
+    <comps>
+      <li Class="BigAndSmall.CompProperties_AbilityGiveHediffComplex">
+        <compClass>BigAndSmall.CompAbilityEffect_GiveHediffComplex</compClass>
+        <hediffDef>DZ_CaitSith_Shadowmeld</hediffDef>
+        <replaceExisting>true</replaceExisting>
+        <onlyApplyToSelf>true</onlyApplyToSelf>
+      </li>
+      <!-- Activation cost; the true forms charge 0.20. -->
+      <li Class="BigAndSmall.CompProperties_SoulEnergyCost">
+        <resourceCost>0.10</resourceCost>
+      </li>
+    </comps>
+  </AbilityDef>
+
+  <HediffDef MayRequireAnyOf="Ludeon.RimWorld.Royalty,Ludeon.RimWorld.Anomaly">
+    <defName>DZ_CaitSith_Shadowmeld</defName>
+    <label>shadowmeld</label>
+    <description>Hidden behind a veil of soul power. Nobody can see this pawn, but the veil eats soul power for as long as it holds.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <initialSeverity>1</initialSeverity>
+    <everCurableByItem>false</everCurableByItem>
+    <comps>
+      <li Class="HediffCompProperties_Invisibility">
+        <!-- Player still sees their own pawn; only other pawns lose track of it. -->
+        <visibleToPlayer>true</visibleToPlayer>
+      </li>
+      <!-- Framework drain: a fixed 0.01 soul power every ticksBetweenDrain ticks (the amount is
+           a constant in Comp_DrainsResource). 60 ticks = a full pool in one in-game hour; the true
+           forms use 40. Cancelling sets severity to 0, which removes the hediff. -->
+      <li Class="BigAndSmall.CompProperties_DrainResource">
+        <compClass>BigAndSmall.Comp_DrainsSoulEnergy</compClass>
+        <ticksBetweenDrain>60</ticksBetweenDrain>
+        <removeOnZero>true</removeOnZero>
+        <canCancel>true</canCancel>
+      </li>
+      <li Class="HediffCompProperties_DisappearsOnDeath"/>
+    </comps>
+  </HediffDef>
+
+</Defs>

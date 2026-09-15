@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Loaded only with Big and Small - Genes & More (RedMattis.BigSmall.Core): this xenotype uses BS_ genes from it. -->
+  <XenotypeDef>
+    <defName>DZ_CaitSith</defName>
+    <label>Cait Sith</label>
+    <description>Cait Sith are a pseudohuman fairy Liminal species from mythology that resemble cats; known for trickery and stealing souls.</description>
+    <iconPath>UI/Icons/Xenotypes/Catfolk</iconPath>
+    <inheritable>true</inheritable>
+    <displayPriority>300</displayPriority>
+    <genes>
+      <li MayRequire="EBSG.Framework">DZ_NineLives</li>
+      <li>DZ_CaitSith_Stats</li>
+      <li>Ageless</li>
+      <li>ArchiteMetabolism</li>
+      <li>DiseaseFree</li>
+      <li>Sleepy</li>
+      <li>Body_Standard</li>
+      <li>Delicate</li>
+      <li>Body_FemaleOnly</li>
+      <li>Libido_High</li>
+      <li>DZ_CatfolkEars</li>
+      <li>DZ_CatfolkFelineHead</li>
+      <li>DZ_CatfolkTail</li>
+      <li>DZ_CatfolkClaws</li>
+      <li>DarkVision</li>
+
+      <li>BS_SoulPower</li>
+      <li>BS_ConsumeSoul</li>
+      <li MayRequireAnyOf="Ludeon.RimWorld.Royalty,Ludeon.RimWorld.Anomaly">DZ_CaitSith_Shadowmeld</li>
+      <li>BS_TrulyAgeless</li>
+      <li>BS_HealingWithSoul</li>
+      <li>BS_AnimalFriend</li>
+
+      <li>AptitudePoor_Cooking</li>
+
+      <li>Hair_LightOrange</li>
+      <li>Hair_LightBlue</li>
+      <li>Hair_LightGreen</li>
+      <li>Hair_Pink</li>
+      <li>BS_BurgundyHair</li>
+      <li>Hair_LightPurple</li>
+      <li>BS_Hair_TrueWhite</li>
+      <li>BS_BloodHair</li>
+      <li>Hair_MediumBlue</li>
+      <li>BS_HairFrostWhite</li>
+      <li>BS_HairPermafrost</li>
+
+      <li MayRequire="sarg.alphagenes">AG_TableResistance</li>
+      <li MayRequire="sarg.alphagenes">AG_Clean</li>
+      <li MayRequire="sarg.alphagenes">AG_MiningYield_Low</li>
+    </genes>
+  </XenotypeDef>
+
+</Defs>

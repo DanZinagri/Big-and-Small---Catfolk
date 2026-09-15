@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Claws: Muriden pattern. The framework's PawnExtension.applyPartHediff puts one claw hediff on
+       each Hand it can find (six entries so multi-armed frames get a full set); the hediff's
+       VerbGiver supplies the melee tool. -->
+  <GeneDef>
+    <defName>DZ_CatfolkClaws</defName>
+    <label>retractable claws</label>
+    <description>Carriers of this gene possess sharp retractable claws.</description>
+    <!-- Placeholder: vanilla strong melee damage icon. -->
+    <iconPath>UI/Icons/Genes/Gene_StrongMeleeDamage</iconPath>
+    <displayCategory>Miscellaneous</displayCategory>
+    <displayOrderInCategory>775</displayOrderInCategory>
+    <biostatCpx>1</biostatCpx>
+    <biostatMet>-1</biostatMet>
+    <selectionWeight>0.5</selectionWeight>
+    <modExtensions>
+      <li Class="BigAndSmall.PawnExtension">
+        <applyPartHediff>
+          <li>
+            <hediff>DZ_CatfolkClaws</hediff>
+            <bodyparts>
+              <li>Hand</li>
+              <li>Hand</li>
+              <li>Hand</li>
+              <li>Hand</li>
+              <li>Hand</li>
+              <li>Hand</li>
+            </bodyparts>
+          </li>
+        </applyPartHediff>
+      </li>
+    </modExtensions>
+  </GeneDef>
+
+  <HediffDef>
+    <defName>DZ_CatfolkClaws</defName>
+    <label>retractable claws</label>
+    <description>Sharp retractable claws. Fairly effective against armor.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <isBad>false</isBad>
+    <stages>
+      <li>
+        <statOffsets>
+          <SM_UnarmedAttackSpeed>0.05</SM_UnarmedAttackSpeed>
+        </statOffsets>
+      </li>
+    </stages>
+    <comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>claws</label>
+            <capacities>
+              <li>Cut</li>
+            </capacities>
+            <power>11</power>
+            <chanceFactor>2</chanceFactor>
+            <cooldownTime>2.0</cooldownTime>
+            <armorPenetration>0.2</armorPenetration>
+          </li>
+        </tools>
+      </li>
+    </comps>
+    <addedPartProps>
+      <betterThanNatural>false</betterThanNatural>
+    </addedPartProps>
+  </HediffDef>
+
+</Defs>

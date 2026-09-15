@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <!-- With AFU Cosmetic Gene Expanded (JintuziLamian.Gene.XenoCosmetic) loaded, our tail genes
+       borrow the look of its AFU_BA_LovelyCatTail: same Better Gene Graphics Framework render
+       node (random coat variant A-F per pawn, hair coloured, east/north/west only) and the same
+       per-body-type offsets. The genes themselves are untouched, so the Big and Small race swap,
+       stats and prerequisites stay ours. BGGF's worker reads WithBodyTypeOffset from the gene that
+       owns the node, which is why the extension is copied onto our genes. AFU requires BGGF, so
+       gating on AFU alone is enough. The werecat night form adds DZ_CatfolkTail as a real gene,
+       so it picks this up too. -->
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/GeneDef[defName="DZ_CatfolkTail" or defName="DZ_PantheraTail"]/renderNodeProperties</xpath>
+    <value>
+      <renderNodeProperties>
+        <li>
+          <nodeClass>BetterGeneGraphicsFramework.PawnRenderNode_GeneAttachment</nodeClass>
+          <workerClass>BetterGeneGraphicsFramework.PawnRenderNodeWorker_GeneBodyAttachment</workerClass>
+          <parentTagDef>Body</parentTagDef>
+          <colorType>Hair</colorType>
+          <useRottenColor>true</useRottenColor>
+          <useSkinShader>false</useSkinShader>
+          <rotDrawMode>Fresh, Rotting</rotDrawMode>
+          <texPaths>
+            <li>Things/Pawn/Humanlike/AFUBodyAttachments/LovelyCatTail/LovelyCatTailA</li>
+            <li>Things/Pawn/Humanlike/AFUBodyAttachments/LovelyCatTail/LovelyCatTailB</li>
+            <li>Things/Pawn/Humanlike/AFUBodyAttachments/LovelyCatTail/LovelyCatTailC</li>
+            <li>Things/Pawn/Humanlike/AFUBodyAttachments/LovelyCatTail/LovelyCatTailD</li>
+            <li>Things/Pawn/Humanlike/AFUBodyAttachments/LovelyCatTail/LovelyCatTailE</li>
+            <li>Things/Pawn/Humanlike/AFUBodyAttachments/LovelyCatTail/LovelyCatTailF</li>
+          </texPaths>
+          <visibleFacing>
+            <li>East</li>
+            <li>North</li>
+            <li>West</li>
+          </visibleFacing>
+          <drawData>
+            <defaultData>
+              <layer>1</layer>
+            </defaultData>
+            <dataNorth>
+              <layer>90</layer>
+            </dataNorth>
+          </drawData>
+        </li>
+      </renderNodeProperties>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/GeneDef[defName="DZ_CatfolkTail" or defName="DZ_PantheraTail"]/modExtensions</xpath>
+    <value>
+      <li Class="BetterGeneGraphicsFramework.WithBodyTypeOffset">
+        <disableBodyTypeScaleForAdult>true</disableBodyTypeScaleForAdult>
+        <bodyTypeOffsetNorth>
+          <male>(0,0,-0.35)</male>
+          <female>(0,0,-0.32)</female>
+          <hulk>(0,0,-0.5)</hulk>
+          <fat>(0,0,-0.3)</fat>
+          <thin>(0,0,-0.32)</thin>
+          <baby>(0,0,0)</baby>
+          <child>(0,0,-0.22)</child>
+          <femaleBB>(0,0,-0.32)</femaleBB>
+        </bodyTypeOffsetNorth>
+        <bodyTypeOffsetSouth>
+          <male>(0,0,0)</male>
+          <female>(0,0,0)</female>
+          <hulk>(0,0,0)</hulk>
+          <fat>(0,0,0)</fat>
+          <thin>(0,0,0)</thin>
+          <baby>(0,0,0)</baby>
+          <child>(0,0,0)</child>
+          <femaleBB>(0,0,0)</femaleBB>
+        </bodyTypeOffsetSouth>
+        <bodyTypeOffsetEast>
+          <male>(0,0,0)</male>
+          <female>(-0.04,0,0)</female>
+          <hulk>(-0.15,0,-0.05)</hulk>
+          <fat>(-0.26,0,0)</fat>
+          <thin>(0.01,0,0.03)</thin>
+          <child>(0,0,0.05)</child>
+          <baby>(0.05,0,0.06)</baby>
+          <femaleBB>(-0.04,0,0)</femaleBB>
+        </bodyTypeOffsetEast>
+      </li>
+    </value>
+  </Operation>
+</Patch>

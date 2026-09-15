@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Parent DZ_CatfolkStatsBase lives in 1.6/Defs/GeneDefs_Stats.xml. -->
+  <GeneDef ParentName="DZ_CatfolkStatsBase">
+    <defName>DZ_CaitSith_Stats</defName>
+    <label>cait sith trickery</label>
+    <description>Carriers of this gene have the innate agility of the cait sith.</description>
+    <statOffsets>
+      <!-- VEF stat, rolled in its Projectile.ImpactSomething patch. -->
+      <VEF_RangedDodgeChance>0.1</VEF_RangedDodgeChance>
+    </statOffsets>
+    <statFactors>
+      <PawnTrapSpringChance>0.8</PawnTrapSpringChance>
+      <RestRateMultiplier>1.2</RestRateMultiplier>
+    </statFactors>
+  </GeneDef>
+
+</Defs>

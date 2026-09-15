@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Nine lives, built on EBSG Framework's MultipleLives comp (same pattern as Highborn's
+       "lesser deaths"). Folder is gated on EBSG.Framework via LoadFolders. No DLC needed.
+       Revive is automatic for every pawn after hoursToRevive; daysToRecoverLife is left at 0 so
+       the nine charges never refill. Severity tracks lives left (useSeverityNotDays): each death
+       subtracts (maxSeverity - 0.001) / 9, and the stages below just relabel the count. -->
+
+  <GeneDef>
+    <defName>DZ_NineLives</defName>
+    <label>nine lives</label>
+    <description>Carriers of this gene can come back from death nine times over the course of their life, provided the brain survives. The lives never come back.</description>
+    <customEffectDescriptions>
+      <li>Grants 9 revives. A revive triggers automatically if the brain is intact and takes 12 hours to complete.</li>
+    </customEffectDescriptions>
+    <geneClass>EBSGFramework.HediffAdder</geneClass>
+    <!-- Placeholder icon. -->
+    <iconPath>UI/Icons/Genes/CatIcon</iconPath>
+    <displayCategory>Archite</displayCategory>
+    <displayOrderInCategory>950</displayOrderInCategory>
+    <biostatCpx>1</biostatCpx>
+    <biostatMet>0</biostatMet>
+    <biostatArc>2</biostatArc>
+    <selectionWeight>0</selectionWeight>
+    <canGenerateInGeneSet>false</canGenerateInGeneSet>
+    <!-- Shared with vanilla Deathless via Patch_DeathlessExclusion.xml, so the two conflict. -->
+    <exclusionTags>
+      <li>DZ_NineLives_Deathless</li>
+    </exclusionTags>
+    <descriptionHyperlinks>
+      <HediffDef>DZ_NineLives</HediffDef>
+    </descriptionHyperlinks>
+    <modExtensions>
+      <li Class="EBSGFramework.EBSGExtension">
+        <hediffsToApply>
+          <li>
+            <hediff>DZ_NineLives</hediff>
+            <onlyIfNew>true</onlyIfNew>
+            <severity>1</severity>
+          </li>
+        </hediffsToApply>
+        <vanishingGene>false</vanishingGene>
+      </li>
+    </modExtensions>
+  </GeneDef>
+
+  <HediffDef>
+    <defName>DZ_NineLives</defName>
+    <label>nine lives</label>
+    <description>Feline archites cling to this person's soul. When they die the archites rebuild the body, nine times in all.</description>
+    <isBad>false</isBad>
+    <hediffClass>HediffWithComps</hediffClass>
+    <everCurableByItem>false</everCurableByItem>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <minSeverity>0.01</minSeverity>
+    <maxSeverity>1</maxSeverity>
+    <initialSeverity>1</initialSeverity>
+    <stages>
+      <li>
+        <label>one life left</label>
+        <minSeverity>0.0005</minSeverity>
+      </li>
+      <li>
+        <label>two lives left</label>
+        <minSeverity>0.1115</minSeverity>
+      </li>
+      <li>
+        <label>three lives left</label>
+        <minSeverity>0.2225</minSeverity>
+      </li>
+      <li>
+        <label>four lives left</label>
+        <minSeverity>0.3335</minSeverity>
+      </li>
+      <li>
+        <label>five lives left</label>
+        <minSeverity>0.4445</minSeverity>
+      </li>
+      <li>
+        <label>six lives left</label>
+        <minSeverity>0.5555</minSeverity>
+      </li>
+      <li>
+        <label>seven lives left</label>
+        <minSeverity>0.6665</minSeverity>
+      </li>
+      <li>
+        <label>eight lives left</label>
+        <minSeverity>0.7775</minSeverity>
+      </li>
+      <li>
+        <label>nine lives left</label>
+        <minSeverity>0.8885</minSeverity>
+      </li>
+    </stages>
+    <comps>
+      <li Class="EBSGFramework.HediffCompProperties_MultipleLives">
+        <extraLives>9</extraLives>
+        <hoursToRevive>12</hoursToRevive>
+        <needBrainToRevive>true</needBrainToRevive>
+        <useSeverityNotDays>true</useSeverityNotDays>
+      </li>
+    </comps>
+  </HediffDef>
+
+</Defs>

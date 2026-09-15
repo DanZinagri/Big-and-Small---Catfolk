@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Night form. Added by DZ_InvoluntaryWereCat while the framework's AtNight conditional holds
+       (sky glow below 0.3) and removed again at dawn.
+
+       Visuals come from the real catfolk genes: the framework's TransitioningHediff adds them as
+       xenogenes when this hediff is added and strips them when it is removed. They have to be real
+       genes rather than render nodes on this hediff because Facial Animation binds head types to
+       genes in the pawn's gene list (it does not check whether a gene is active), so the furred
+       feline head only shows at night if the gene itself comes and goes. With no Facial Animation
+       the same gene supplies the skinIsHairColor tint instead.
+
+       GOTCHA: the dawn trigger removes EVERY gene with those defNames, so the were-cat's day-form
+       gene list must not contain DZ_CatfolkFurredFelineHead, DZ_CatfolkEars, DZ_CatfolkTail or
+       DarkVision. -->
+  <HediffDef>
+    <defName>DZ_WereCatForm</defName>
+    <label>were-cat form</label>
+    <description>Transformed into a feline night-stalker.</description>
+    <hediffClass>BigAndSmall.TransitioningHediff</hediffClass>
+    <isBad>false</isBad>
+    <everCurableByItem>false</everCurableByItem>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <initialSeverity>1</initialSeverity>
+    <modExtensions>
+      <li Class="BigAndSmall.TransitioningHediffProps">
+        <onHediffAdded>
+          <xenogene>true</xenogene>
+          <geneDefsToAdd>
+            <li>DZ_CatfolkFurredFelineHead</li>
+            <li>DZ_CatfolkEars</li>
+            <li>DZ_CatfolkTail</li>
+            <!-- DarkVision is the ignoreDarkness gene flag; it has no hediff equivalent. -->
+            <li>DarkVision</li>
+          </geneDefsToAdd>
+        </onHediffAdded>
+        <onHediffRemoved>
+          <geneDefsToRemove>
+            <li>DZ_CatfolkFurredFelineHead</li>
+            <li>DZ_CatfolkEars</li>
+            <li>DZ_CatfolkTail</li>
+            <li>DarkVision</li>
+          </geneDefsToRemove>
+        </onHediffRemoved>
+      </li>
+    </modExtensions>
+    <!-- Placeholder stats: tune freely. Genes & More's BS_WerewolfForm is the reference for what a
+         form hediff can carry (statOffsets/statFactors, aptitudes, abilities, VerbGiver tools,
+         renderNodeProperties, BigAndSmall.CompProperties_ColorAndFur). -->
+    <stages>
+      <li>
+        <label>transformed</label>
+        <statOffsets>
+          <MoveSpeed>0.2</MoveSpeed>
+          <SM_BodySizeOffset>0.25</SM_BodySizeOffset>
+          <!-- Ideology stats; MayRequire drops the entries cleanly without the DLC. -->
+          <MeleeDodgeChanceOutdoorsDarkOffset MayRequire="Ludeon.RimWorld.Ideology">0.1</MeleeDodgeChanceOutdoorsDarkOffset>
+          <MeleeDodgeChanceIndoorsDarkOffset MayRequire="Ludeon.RimWorld.Ideology">0.1</MeleeDodgeChanceIndoorsDarkOffset>
+        </statOffsets>
+        <statFactors>
+          <WorkSpeedGlobal>0.8</WorkSpeedGlobal>
+          <!-- Same as Genes & More's BS_Unarmed_VeryStrong (supersedes MeleeDamage_Strong's 1.5). -->
+          <MeleeDamageFactor>1.75</MeleeDamageFactor>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+
+</Defs>

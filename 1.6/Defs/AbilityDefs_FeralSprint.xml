@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Feral feline sprint: self-buff, +25% move speed for 2 in-game hours, 8 hour cooldown.
+       Vanilla only. CompAbilityEffect_GiveHediff copies Ability_Duration (seconds) into the
+       hediff's Disappears comp: 83 s = 4980 ticks, i.e. two hours at 2500 ticks per hour.
+       Cooldown 20000 ticks = 8 hours. -->
+
+  <AbilityDef>
+    <defName>DZ_FeralFelineSprint</defName>
+    <label>feral feline sprint</label>
+    <description>Drop to all fours and run like a wild cat, moving 25% faster for two hours.</description>
+    <!-- Placeholder icon. -->
+    <iconPath>UI/Icons/Genes/CatIcon</iconPath>
+    <cooldownTicksRange>20000</cooldownTicksRange>
+    <sendMessageOnCooldownComplete>true</sendMessageOnCooldownComplete>
+    <hostile>false</hostile>
+    <targetRequired>false</targetRequired>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
+    <statBases>
+      <Ability_Duration>83</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <warmupTime>0.5</warmupTime>
+      <range>0.9</range>
+      <drawAimPie>false</drawAimPie>
+      <requireLineOfSight>false</requireLineOfSight>
+      <nonInterruptingSelfCast>true</nonInterruptingSelfCast>
+      <targetParams>
+        <canTargetSelf>true</canTargetSelf>
+        <canTargetPawns>false</canTargetPawns>
+        <canTargetLocations>false</canTargetLocations>
+        <canTargetBuildings>false</canTargetBuildings>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>DZ_FeralFelineSprint</hediffDef>
+        <replaceExisting>true</replaceExisting>
+        <onlyApplyToSelf>true</onlyApplyToSelf>
+      </li>
+      <li Class="CompProperties_AbilityFleckOnTarget">
+        <fleckDef>PsycastPsychicEffect</fleckDef>
+      </li>
+    </comps>
+  </AbilityDef>
+
+  <HediffDef>
+    <defName>DZ_FeralFelineSprint</defName>
+    <label>feral sprint</label>
+    <description>Running on feline instinct. Moves 25% faster until the rush fades.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <everCurableByItem>false</everCurableByItem>
+    <defaultLabelColor>(0.9, 0.8, 0.5)</defaultLabelColor>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <showRemainingTime>true</showRemainingTime>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <statFactors>
+          <MoveSpeed>1.25</MoveSpeed>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <GeneDef>
+    <defName>DZ_FeralFelineSprint</defName>
+    <label>feral feline sprint</label>
+    <description>Carriers can drop to all fours and sprint like a wild cat, moving 25% faster for two hours. Usable once every eight hours.</description>
+    <iconPath>UI/Icons/Genes/CatIcon</iconPath>
+    <displayCategory>Ability</displayCategory>
+    <abilities>
+      <li>DZ_FeralFelineSprint</li>
+    </abilities>
+    <descriptionHyperlinks>
+      <AbilityDef>DZ_FeralFelineSprint</AbilityDef>
+    </descriptionHyperlinks>
+    <biostatCpx>1</biostatCpx>
+    <biostatMet>-1</biostatMet>
+    <selectionWeight>0</selectionWeight>
+    <canGenerateInGeneSet>false</canGenerateInGeneSet>
+    <!-- Framework prerequisite: active only while one of these is active. The framework counts a
+         gene it has disabled (e.g. DZ_InvoluntaryWereCat by day) as absent, so a Werecat can only
+         sprint at night. -->
+    <modExtensions>
+      <li Class="BigAndSmall.GenePrerequisites">
+        <prerequisiteSets>
+          <li>
+            <type>AnyOf</type>
+            <prerequisites>
+              <li>DZ_Catfolk_Stats</li>
+              <li>DZ_Panthera_Stats</li>
+              <li>DZ_InvoluntaryWereCat</li>
+            </prerequisites>
+          </li>
+        </prerequisiteSets>
+      </li>
+    </modExtensions>
+  </GeneDef>
+
+</Defs>

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- Skin-coloured variant: no colour change, just the FA head texture. -->
+  <GeneDef ParentName="GeneNoseBase">
+    <defName>DZ_CatfolkFelineHead</defName>
+    <label>feline head</label>
+    <description>Carriers of this gene have cat-like heads, with a short muzzle and a feline nose.</description>
+    <!-- Placeholder: copy of the male north head texture. Replace with proper icon art. -->
+    <iconPath>UI/Icons/Genes/Gene_DZ_CatfolkFelineHead</iconPath>
+    <biostatCpx>1</biostatCpx>
+    <displayCategory>Miscellaneous</displayCategory>
+    <displayOrderInCategory>410.1</displayOrderInCategory>
+  </GeneDef>
+
+  <!-- Furred variant: skin takes the hair colour -->
+  <GeneDef ParentName="GeneNoseBase">
+    <defName>DZ_CatfolkFurredFelineHead</defName>
+    <label>furred feline head</label>
+    <description>Carriers of this gene have cat-like heads covered in short fur that matches their hair colour.</description>
+    <iconPath>UI/Icons/Genes/Gene_DZ_CatfolkFurredFelineHead</iconPath>
+    <biostatCpx>1</biostatCpx>
+    <displayCategory>Miscellaneous</displayCategory>
+    <displayOrderInCategory>410.2</displayOrderInCategory>
+    <skinIsHairColor>true</skinIsHairColor>
+  </GeneDef>
+
+  <GeneDef ParentName="GeneEarsBase">
+    <defName>DZ_CatfolkEars</defName>
+    <label>catfolk ears</label>
+    <description>Carriers of this gene have furred, cat-like ears with bare inner skin.</description>
+    <iconPath>UI/Icons/Genes/Gene_DZ_CatfolkEars</iconPath>
+    <displayOrderInCategory>75</displayOrderInCategory>
+    <renderNodeProperties>
+      <li Class="BigAndSmall.PawnRenderingProps_Ultimate">
+        <nodeClass>BigAndSmall.PawnRenderNode_UltimateHead</nodeClass>
+        <workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+        <parentTagDef>Head</parentTagDef>
+        <rotDrawMode>Fresh, Rotting</rotDrawMode>
+        <conditionalGraphics>
+          <texturePaths>
+            <li>DZ_CatfolkEars/CatEars</li>
+          </texturePaths>
+          <colorA>
+            <hairColor>true</hairColor>
+          </colorA>
+          <colorB>
+            <skinColor>true</skinColor>
+          </colorB>
+        </conditionalGraphics>
+        <drawData>
+          <defaultData>
+            <layer>70</layer>
+          </defaultData>
+        </drawData>
+      </li>
+    </renderNodeProperties>
+  </GeneDef>
+
+  <GeneDef ParentName="GeneTailBase">
+    <defName>DZ_CatfolkTail</defName>
+    <label>catfolk tail</label>
+    <description>Carriers of this gene grow a long, expressive feline tail that helps them keep their balance.</description>
+    <!-- Placeholder: vanilla smooth tail icon. -->
+    <iconPath>UI/Icons/Genes/Gene_TailSmooth</iconPath>
+    <iconColor>(0.75, 0.75, 0.75)</iconColor>
+    <displayOrderInCategory>1000</displayOrderInCategory>
+    <biostatCpx>1</biostatCpx>
+    <biostatMet>-1</biostatMet>
+    <statOffsets>
+      <MoveSpeed>0.1</MoveSpeed>
+    </statOffsets>
+    <modExtensions>
+      <li Class="BigAndSmall.PawnExtension">
+        <thingDefSwap>BS_HumanoidWithTail</thingDefSwap>
+      </li>
+    </modExtensions>
+    <renderNodeProperties>
+      <li>
+        <workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
+        <texPath>DZ_CatfolkTail/DZ_CatfolkTail</texPath>
+        <colorType>Hair</colorType>
+        <overrideMeshSize>(1, 1)</overrideMeshSize>
+        <parentTagDef>Body</parentTagDef>
+        <rotDrawMode>Fresh, Rotting</rotDrawMode>
+        <drawData>
+          <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
+          <defaultData>
+            <layer>-2</layer>
+          </defaultData>
+          <dataNorth>
+            <offset>(0, 0, -0.15)</offset>
+            <layer>90</layer>
+          </dataNorth>
+          <dataSouth>
+            <offset>(0, 0, -0.15)</offset>
+          </dataSouth>
+          <dataEast>
+            <offset>(-0.5, 0, -0.15)</offset>
+          </dataEast>
+          <dataWest>
+            <offset>(0.5, 0, -0.15)</offset>
+          </dataWest>
+        </drawData>
+      </li>
+    </renderNodeProperties>
+  </GeneDef>
+
+  <GeneDef ParentName="GeneTailBase">
+    <defName>DZ_PantheraTail</defName>
+    <label>Panthera tail</label>
+    <description>Carriers of this gene grow a long, expressive feline tail that helps them keep their balance.</description>
+    <!-- Placeholder: vanilla smooth tail icon. -->
+    <iconPath>UI/Icons/Genes/Gene_TailSmooth</iconPath>
+    <iconColor>(0.75, 0.75, 0.75)</iconColor>
+    <displayOrderInCategory>1000</displayOrderInCategory>
+    <biostatCpx>1</biostatCpx>
+    <biostatMet>-1</biostatMet>
+    <statOffsets>
+      <MoveSpeed>0.1</MoveSpeed>
+    </statOffsets>
+    <modExtensions>
+      <li Class="BigAndSmall.PawnExtension">
+        <thingDefSwap>BS_HumanoidWithTail</thingDefSwap>
+      </li>
+    </modExtensions>
+    <renderNodeProperties>
+      <li>
+        <workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
+        <texPath>DZ_CatfolkTail/DZ_CatfolkTail</texPath>
+        <colorType>Hair</colorType>
+        <overrideMeshSize>(1, 1)</overrideMeshSize>
+        <parentTagDef>Body</parentTagDef>
+        <rotDrawMode>Fresh, Rotting</rotDrawMode>
+        <drawData>
+          <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
+          <defaultData>
+            <layer>-2</layer>
+          </defaultData>
+          <dataNorth>
+            <offset>(0, 0, -0.15)</offset>
+            <layer>90</layer>
+          </dataNorth>
+          <dataSouth>
+            <offset>(0, 0, -0.15)</offset>
+          </dataSouth>
+          <dataEast>
+            <offset>(-0.5, 0, -0.15)</offset>
+          </dataEast>
+          <dataWest>
+            <offset>(0.5, 0, -0.15)</offset>
+          </dataWest>
+        </drawData>
+      </li>
+    </renderNodeProperties>
+  </GeneDef>
+
+</Defs>

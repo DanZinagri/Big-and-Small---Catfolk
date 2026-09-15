@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <!-- Big and Small - Yokai's nekomata get nine lives too. Folder is gated on RedMattis.Yokai
+       via LoadFolders; the gene entry itself is gated on EBSG Framework like everywhere else. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/XenotypeDef[defName="BS_Nekomata"]/genes</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/XenotypeDef[defName="BS_Nekomata"]/genes</xpath>
+      <value>
+        <li MayRequire="EBSG.Framework">DZ_NineLives</li>
+      </value>
+    </match>
+  </Operation>
+</Patch>
