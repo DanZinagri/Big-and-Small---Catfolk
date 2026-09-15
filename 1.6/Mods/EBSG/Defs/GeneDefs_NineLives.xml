@@ -5,14 +5,15 @@
        "lesser deaths"). Folder is gated on EBSG.Framework via LoadFolders. No DLC needed.
        Revive is automatic for every pawn after hoursToRevive; daysToRecoverLife is left at 0 so
        the nine charges never refill. Severity tracks lives left (useSeverityNotDays): each death
-       subtracts (maxSeverity - 0.001) / 9, and the stages below just relabel the count. -->
+       subtracts (maxSeverity - 0.001) / 8, and the stages below just relabel the count.
+       Eight revives = nine lives counting the one they were born with. -->
 
   <GeneDef>
     <defName>DZ_NineLives</defName>
     <label>nine lives</label>
-    <description>Carriers of this gene can come back from death nine times over the course of their life, provided the brain survives. The lives never come back.</description>
+    <description>Carriers of this gene have nine lives: the one they were born with and eight returns from death, provided the brain survives. Spent lives never come back.</description>
     <customEffectDescriptions>
-      <li>Grants 9 revives. A revive triggers automatically if the brain is intact and takes 12 hours to complete.</li>
+      <li>Grants 8 revives (nine lives in all). A revive triggers automatically if the brain is intact and takes 12 hours to complete.</li>
     </customEffectDescriptions>
     <geneClass>EBSGFramework.HediffAdder</geneClass>
     <!-- Placeholder icon. -->
@@ -48,7 +49,7 @@
   <HediffDef>
     <defName>DZ_NineLives</defName>
     <label>nine lives</label>
-    <description>Feline archites cling to this person's soul. When they die the archites rebuild the body, nine times in all.</description>
+    <description>Feline archites cling to this person's soul. When they die the archites rebuild the body, up to eight times.</description>
     <isBad>false</isBad>
     <hediffClass>HediffWithComps</hediffClass>
     <everCurableByItem>false</everCurableByItem>
@@ -58,45 +59,41 @@
     <initialSeverity>1</initialSeverity>
     <stages>
       <li>
-        <label>one life left</label>
+        <label>one revive left</label>
         <minSeverity>0.0005</minSeverity>
       </li>
       <li>
-        <label>two lives left</label>
-        <minSeverity>0.1115</minSeverity>
+        <label>two revives left</label>
+        <minSeverity>0.1254</minSeverity>
       </li>
       <li>
-        <label>three lives left</label>
-        <minSeverity>0.2225</minSeverity>
+        <label>three revives left</label>
+        <minSeverity>0.2502</minSeverity>
       </li>
       <li>
-        <label>four lives left</label>
-        <minSeverity>0.3335</minSeverity>
+        <label>four revives left</label>
+        <minSeverity>0.3751</minSeverity>
       </li>
       <li>
-        <label>five lives left</label>
-        <minSeverity>0.4445</minSeverity>
+        <label>five revives left</label>
+        <minSeverity>0.5000</minSeverity>
       </li>
       <li>
-        <label>six lives left</label>
-        <minSeverity>0.5555</minSeverity>
+        <label>six revives left</label>
+        <minSeverity>0.6249</minSeverity>
       </li>
       <li>
-        <label>seven lives left</label>
-        <minSeverity>0.6665</minSeverity>
+        <label>seven revives left</label>
+        <minSeverity>0.7497</minSeverity>
       </li>
       <li>
-        <label>eight lives left</label>
-        <minSeverity>0.7775</minSeverity>
-      </li>
-      <li>
-        <label>nine lives left</label>
-        <minSeverity>0.8885</minSeverity>
+        <label>eight revives left</label>
+        <minSeverity>0.8746</minSeverity>
       </li>
     </stages>
     <comps>
       <li Class="EBSGFramework.HediffCompProperties_MultipleLives">
-        <extraLives>9</extraLives>
+        <extraLives>8</extraLives>
         <hoursToRevive>12</hoursToRevive>
         <needBrainToRevive>true</needBrainToRevive>
         <useSeverityNotDays>true</useSeverityNotDays>
