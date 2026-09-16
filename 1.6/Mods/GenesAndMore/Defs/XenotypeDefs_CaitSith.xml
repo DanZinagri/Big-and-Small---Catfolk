@@ -28,6 +28,7 @@
 
       <li>BS_SoulPower</li>
       <li>BS_ConsumeSoul</li>
+      <li MayRequire="zzzomborw.commission.nuzzlegene">ZzZomboRW_Commission_PeriodicNuzzleGene</li>
       <li MayRequireAnyOf="Ludeon.RimWorld.Royalty,Ludeon.RimWorld.Anomaly">DZ_CaitSith_Shadowmeld</li>
       <li>BS_TrulyAgeless</li>
       <li>BS_HealingWithSoul</li>
@@ -46,6 +47,7 @@
       <li>Hair_MediumBlue</li>
       <li>BS_HairFrostWhite</li>
       <li>BS_HairPermafrost</li>
+      <li MayRequire="pacca.genevoiceanimalsvanilla">PaccaVoiceVanillaSmallCat</li>
 
       <li MayRequire="sarg.alphagenes">AG_TableResistance</li>
       <li MayRequire="sarg.alphagenes">AG_Clean</li>

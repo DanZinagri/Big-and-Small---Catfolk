@@ -84,7 +84,7 @@
       <AbilityDef>DZ_FeralFelineSprint</AbilityDef>
     </descriptionHyperlinks>
     <biostatCpx>1</biostatCpx>
-    <biostatMet>-1</biostatMet>
+    <biostatMet>0</biostatMet>
     <selectionWeight>0</selectionWeight>
     <canGenerateInGeneSet>false</canGenerateInGeneSet>
     <!-- Framework prerequisite: active only while one of these is active. The framework counts a

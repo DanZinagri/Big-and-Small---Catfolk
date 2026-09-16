@@ -31,8 +31,9 @@
             <li>DZ_CatfolkFurredFelineHead</li>
             <li>DZ_CatfolkEars</li>
             <li>DZ_CatfolkTail</li>
-            <!-- DarkVision is the ignoreDarkness gene flag; it has no hediff equivalent. -->
             <li>DarkVision</li>
+            <li MayRequire="pacca.genevoiceanimalsvanilla">PaccaVoiceVanillaCougar</li>
+            <li MayRequire="zzzomborw.commission.nuzzlegene">ZzZomboRW_Commission_PeriodicNuzzleGene</li>
           </geneDefsToAdd>
         </onHediffAdded>
         <onHediffRemoved>
@@ -41,6 +42,8 @@
             <li>DZ_CatfolkEars</li>
             <li>DZ_CatfolkTail</li>
             <li>DarkVision</li>
+            <li MayRequire="pacca.genevoiceanimalsvanilla">PaccaVoiceVanillaCougar</li>
+            <li MayRequire="zzzomborw.commission.nuzzlegene">ZzZomboRW_Commission_PeriodicNuzzleGene</li>
           </geneDefsToRemove>
         </onHediffRemoved>
       </li>

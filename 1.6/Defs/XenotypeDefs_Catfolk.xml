@@ -24,6 +24,8 @@
       <li>AptitudePoor_Cooking</li>
       <li>AptitudePoor_Plants</li>
       <li>AptitudePoor_Mining</li>
+      <li MayRequire="pacca.genevoiceanimalsvanilla">PaccaVoiceVanillaSmallCat</li>
+      <li MayRequire="zzzomborw.commission.nuzzlegene">ZzZomboRW_Commission_PeriodicNuzzleGene</li>
 
       <li MayRequire="sarg.alphagenes">AG_TableResistance</li>
       <li MayRequire="sarg.alphagenes">AG_Clean</li>
@@ -59,6 +61,8 @@
       <li>AptitudeStrong_Melee</li>
       <li>AptitudePoor_Cooking</li>
       <li>AptitudePoor_Plants</li>
+      <li MayRequire="pacca.genevoiceanimalsvanilla">PaccaVoiceVanillaCougar</li>
+      <li MayRequire="zzzomborw.commission.nuzzlegene">ZzZomboRW_Commission_PeriodicNuzzleGene</li>
 
       <li MayRequire="sarg.alphagenes">AG_TableResistance</li>
       <li MayRequire="sarg.alphagenes">AG_Clean</li>
