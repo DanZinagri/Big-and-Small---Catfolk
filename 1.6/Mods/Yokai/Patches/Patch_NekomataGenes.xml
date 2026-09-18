@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <!-- Nekomata gene tweaks. Every operation is conditional on its target entry existing, so
+       nothing errors if Yokai changes its list. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/XenotypeDef[defName="BS_Nekomata"]/genes/li[text()="BS_IntegrateGenes"]</xpath>
+    <match Class="PatchOperationRemove">
+      <xpath>Defs/XenotypeDef[defName="BS_Nekomata"]/genes/li[text()="BS_IntegrateGenes"]</xpath>
+    </match>
+  </Operation>
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/XenotypeDef[defName="BS_Nekomata"]/genes/li[text()="BS_Incorporate"]</xpath>
+    <match Class="PatchOperationRemove">
+      <xpath>Defs/XenotypeDef[defName="BS_Nekomata"]/genes/li[text()="BS_Incorporate"]</xpath>
+    </match>
+  </Operation>
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/XenotypeDef[defName="BS_Nekomata"]/genes</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/XenotypeDef[defName="BS_Nekomata"]/genes</xpath>
+      <value>
+        <li>AptitudePoor_Plants</li>
+      </value>
+    </match>
+  </Operation>
+
+  <!-- Swaps: catfolk ears for the generic animal ears, one step milder on speed and mood. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/XenotypeDef[defName="BS_Nekomata"]/genes/li[text()="BS_AnimalEars"]</xpath>
+    <match Class="PatchOperationReplace">
+      <xpath>Defs/XenotypeDef[defName="BS_Nekomata"]/genes/li[text()="BS_AnimalEars"]</xpath>
+      <value>
+        <li>DZ_CatfolkEars</li>
+      </value>
+    </match>
+  </Operation>
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/XenotypeDef[defName="BS_Nekomata"]/genes/li[text()="MoveSpeed_VeryQuick"]</xpath>
+    <match Class="PatchOperationReplace">
+      <xpath>Defs/XenotypeDef[defName="BS_Nekomata"]/genes/li[text()="MoveSpeed_VeryQuick"]</xpath>
+      <value>
+        <li>MoveSpeed_Quick</li>
+      </value>
+    </match>
+  </Operation>
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/XenotypeDef[defName="BS_Nekomata"]/genes/li[text()="Mood_Depressive"]</xpath>
+    <match Class="PatchOperationReplace">
+      <xpath>Defs/XenotypeDef[defName="BS_Nekomata"]/genes/li[text()="Mood_Depressive"]</xpath>
+      <value>
+        <li>Mood_Pessimist</li>
+      </value>
+    </match>
+  </Operation>
+
+  <!-- Own stats gene (GeneDefs_Stats_Nekomata.xml) plus Alpha Genes extras when that mod is present. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/XenotypeDef[defName="BS_Nekomata"]/genes</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/XenotypeDef[defName="BS_Nekomata"]/genes</xpath>
+      <value>
+        <li>DZ_Nekomata_Stats</li>
+        <li MayRequire="sarg.alphagenes">AG_TableResistance</li>
+        <li MayRequire="sarg.alphagenes">AG_Clean</li>
+        <li MayRequire="sarg.alphagenes">AG_MiningYield_Low</li>
+      </value>
+    </match>
+  </Operation>
+</Patch>
