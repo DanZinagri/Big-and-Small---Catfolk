@@ -8,5 +8,6 @@
     <li IfModActive="JintuziLamian.Gene.XenoCosmetic">1.6/Mods/AFUCosmeticGenes</li>
     <li IfModActive="EBSG.Framework">1.6/Mods/EBSG</li>
     <li IfModActive="RedMattis.Yokai">1.6/Mods/Yokai</li>
+    <li IfModActive="RedMattis.Undead">1.6/Mods/Undead</li>
   </v1.6>
 </loadFolders>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <!-- Big and Small - Vampires and the Undead's "fleeing monster" quest (BS_Escaped_Monster) picks
+       its asker from a forced xenotype list: succubus, dracul, lycanthrope, frankenstein, white
+       rose. Adding the werecat puts them in that rotation, hunted by a permanent-enemy faction and
+       joining the colony if the player takes them in. Folder is gated on RedMattis.Undead. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/QuestScriptDef[defName="BS_Escaped_Monster"]/root/nodes/li[@Class="BigAndSmall.QuestNode_PawnGenerator"]/forcedXenotypes</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/QuestScriptDef[defName="BS_Escaped_Monster"]/root/nodes/li[@Class="BigAndSmall.QuestNode_PawnGenerator"]/forcedXenotypes</xpath>
+      <value>
+        <li>DZ_WereCat</li>
+      </value>
+    </match>
+  </Operation>
+</Patch>

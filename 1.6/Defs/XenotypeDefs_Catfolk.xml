@@ -78,6 +78,9 @@
     <iconPath>UI/Icons/Xenotypes/Catfolk</iconPath>
     <inheritable>true</inheritable>
     <displayPriority>300</displayPriority>
+    <!-- Default is 1 for every xenotype; 2 matches the deliberate boost Big and Small gives its
+         lycanthrope, so werecats turn up a little more often among factionless pawns. -->
+    <factionlessGenerationWeight>2</factionlessGenerationWeight>
     <genes>
       <li MayRequire="EBSG.Framework">DZ_NineLives</li>
       <li>DZ_FeralFelineSprint</li>

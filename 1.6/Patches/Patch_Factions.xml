@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <!-- Vanilla faction placements. xenotypeChances values are WEIGHTS, not percentages: the game
+       rolls TryRandomElementByWeight over them and gives Baseliner whatever is left of 1.0. So on a
+       faction with no xenotypeSet, 0.05 really is 5%; on one that weights its own xenotype at 999
+       (the yttakin), an entry of 20 works out to about 2%. -->
+
+  <!-- Civil outlander union: no xenotypeSet of its own, so create the block if it is still missing. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/FactionDef[defName="OutlanderCivil"]/xenotypeSet/xenotypeChances</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/FactionDef[defName="OutlanderCivil"]/xenotypeSet/xenotypeChances</xpath>
+      <value>
+        <DZ_Catfolk>0.05</DZ_Catfolk>
+      </value>
+    </match>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>Defs/FactionDef[defName="OutlanderCivil"]</xpath>
+      <value>
+        <xenotypeSet>
+          <xenotypeChances>
+            <DZ_Catfolk>0.05</DZ_Catfolk>
+          </xenotypeChances>
+        </xenotypeSet>
+      </value>
+    </nomatch>
+  </Operation>
+
+  <!-- Yttakin pirates: Yttakin sits at 999, so 20 is roughly a 2% appearance. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/FactionDef[defName="PirateYttakin"]/xenotypeSet/xenotypeChances</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/FactionDef[defName="PirateYttakin"]/xenotypeSet/xenotypeChances</xpath>
+      <value>
+        <DZ_Panthera>20</DZ_Panthera>
+      </value>
+    </match>
+  </Operation>
+
+</Patch>
