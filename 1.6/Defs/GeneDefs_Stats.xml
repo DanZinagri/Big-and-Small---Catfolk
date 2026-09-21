@@ -10,6 +10,11 @@
     <biostatMet>-1</biostatMet>
     <selectionWeight>0</selectionWeight>
     <canGenerateInGeneSet>false</canGenerateInGeneSet>
+    <!-- One innate stats gene per pawn. ML_Stats is the tag Muriden's resolve/alacrity/ingenuity
+         genes already share, so ours conflict with each other and with those. -->
+    <exclusionTags>
+      <li>ML_Stats</li>
+    </exclusionTags>
     <statOffsets>
       <MoveSpeed>0.1</MoveSpeed>
     </statOffsets>
