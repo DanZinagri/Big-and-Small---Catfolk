@@ -10,4 +10,14 @@
     <li IfModActive="RedMattis.Yokai">1.6/Mods/Yokai</li>
     <li IfModActive="RedMattis.Undead">1.6/Mods/Undead</li>
   </v1.6>
+  <v1.7>
+    <li>/</li>
+    <li>1.7</li>
+    <li IfModActive="Nals.FacialAnimation">1.7/Mods/FacialAnimation</li>
+    <li IfModActive="RedMattis.BigSmall.Core">1.7/Mods/GenesAndMore</li>
+    <li IfModActive="JintuziLamian.Gene.XenoCosmetic">1.7/Mods/AFUCosmeticGenes</li>
+    <li IfModActive="EBSG.Framework">1.7/Mods/EBSG</li>
+    <li IfModActive="RedMattis.Yokai">1.7/Mods/Yokai</li>
+    <li IfModActive="RedMattis.Undead">1.7/Mods/Undead</li>
+  </v1.7>
 </loadFolders>

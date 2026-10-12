@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <!-- Vanilla Deathless has no exclusion tags, so give it ours: two genes sharing a tag conflict
+       and cannot both be active. Conditional so it also works if Deathless ever gains tags. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/GeneDef[defName="Deathless"]/exclusionTags</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/GeneDef[defName="Deathless"]/exclusionTags</xpath>
+      <value>
+        <li>DZ_NineLives_Deathless</li>
+      </value>
+    </match>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>Defs/GeneDef[defName="Deathless"]</xpath>
+      <value>
+        <exclusionTags>
+          <li>DZ_NineLives_Deathless</li>
+        </exclusionTags>
+      </value>
+    </nomatch>
+  </Operation>
+</Patch>

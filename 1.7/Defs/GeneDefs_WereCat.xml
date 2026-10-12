@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Involuntary transformation, Big and Small style (compare Genes & More's
+       VU_Involuntary_Werewolf): the gene is only active at night, and while active its
+       PawnExtension applies the DZ_WereCatForm body hediff. The framework re-polls genes that
+       carry conditionals and adds/removes the hediff on each flip. -->
+  <GeneDef>
+    <defName>DZ_InvoluntaryWereCat</defName>
+    <label>involuntary were-cat</label>
+    <description>Carriers of this gene transform into a feline form at night, growing fur, cat ears and a tail until morning.</description>
+    <!-- Placeholder icon. -->
+    <iconPath>UI/Icons/Genes/Gene_DZ_CatfolkEars</iconPath>
+    <displayCategory>Miscellaneous</displayCategory>
+    <displayOrderInCategory>900</displayOrderInCategory>
+    <biostatCpx>2</biostatCpx>
+    <biostatMet>0</biostatMet>
+    <biostatArc>1</biostatArc>
+    <selectionWeight>0</selectionWeight>
+    <canGenerateInGeneSet>false</canGenerateInGeneSet>
+    <exclusionTags>
+      <li>DZ_Transformation</li>
+    </exclusionTags>
+    <modExtensions>
+      <li Class="BigAndSmall.PawnExtension">
+        <conditionals>
+          <li Class="BigAndSmall.ConditionalStatAffecter_AtNight"/>
+        </conditionals>
+        <applyBodyHediff>
+          <li>
+            <hediff>DZ_WereCatForm</hediff>
+          </li>
+        </applyBodyHediff>
+        <!-- Night-only infecting claws (HediffDefs_WereCatInfection.xml). -->
+        <applyPartHediff>
+          <li>
+            <hediff>DZ_WereCatClaws</hediff>
+            <bodyparts>
+              <li>Hand</li>
+              <li>Hand</li>
+            </bodyparts>
+          </li>
+        </applyPartHediff>
+        <!-- Effect of BS_UnarmedOnly / BS_Unarmed_VeryStrong: no melee weapons while transformed. -->
+        <forceUnarmed>true</forceUnarmed>
+      </li>
+    </modExtensions>
+  </GeneDef>
+
+</Defs>
